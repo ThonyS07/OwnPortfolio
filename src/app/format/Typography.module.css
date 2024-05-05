@@ -1,0 +1,50 @@
+.text4xl{
+    font-size: 60px;
+    line-height: 72px;
+}
+.text3xl{
+    font-size: 40px;
+    line-height: 52px;
+}
+.text2xl{
+    font-size: 36px;
+    line-height: 44px;
+}
+.text1xl{
+    font-size: 32px;
+    line-height: 40px;
+}
+.textxl{
+    font-size: 28px;
+    line-height: 36px;
+}
+.textl{
+    font-size: 24px;
+    line-height: 32px;
+}
+.textm{
+    font-size: 20px;
+    line-height: 28px;
+}
+.texts{
+    font-size: 16px;
+    line-height: 24px;
+}
+.textxs{
+    font-size: 14px;
+    line-height: 20px;
+}
+.text2xs{
+    font-size: 12px;
+    line-height: 16px;
+}
+.text3xs{
+    font-size: 10px;
+    line-height: 12px;
+}
+.boldFont{
+    font-weight: 700;
+}
+.blackFont{
+    font-weight: 900;
+}
