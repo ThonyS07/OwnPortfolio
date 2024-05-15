@@ -19,6 +19,7 @@ datasource db {
 model Projects {
   id String @id @default(uuid())
   title String
+  abstract String
   description String
   images String[]
   repoLink String

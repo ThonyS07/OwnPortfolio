@@ -16,13 +16,14 @@ export const GET = async () => {
 
 export const POST = async (request: Request) => {
 	try {
-		const { title, description, images, repoLink, deployLink } =
+		const { title, abstract, description, images, repoLink, deployLink } =
 			await request.json();
-		if (!title || !description || !images || !repoLink)
+		if (!title || !abstract || !description || !images || !repoLink)
 			throw new Error("Complete fields");
 		const newProject = await prisma.projects.create({
 			data: {
 				title,
+				abstract,
 				description,
 				images,
 				repoLink,
