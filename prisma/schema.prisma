@@ -39,3 +39,9 @@ model HardSkills {
   percent Float
   
 }
+
+model Experience {
+  id String @id @default(uuid())
+  name String
+  level Float
+}
