@@ -12,7 +12,7 @@ const ProjectsWrapper = () => {
 
 	useEffect(() => {
 		loadProjects();
-	}, []);
+	}, [loadProjects]);
 
 	return (
 		<div className='flex xl:w-[90%] sm:flex-col md:flex-row sm:gap-[24px]  lg:gap-[40] xl:gap-[68px] flex-wrap items-center  justify-center'>
