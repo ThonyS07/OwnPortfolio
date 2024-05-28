@@ -4,6 +4,7 @@ import { createContext, useState, useContext, useCallback } from "react";
 import { CreateProject, UpdateProject } from "@/interfaces/Project";
 import { Projects } from "@prisma/client";
 
+
 export const ProjectsContext = createContext<{
 	projects: Projects[];
 	loadProjects: () => Promise<void>;
@@ -34,9 +35,11 @@ export const ProjectsProvider = ({ children }: { children: React.ReactNode }) =>
 	const [projects, setProjects] = useState<Projects[]>([]);
 	const [selectedProjects, setSelectedProjects] = useState<Projects | null>(null);
 
-	const loadProjects = useCallback( async () =>  {
-		const res = await fetch("/api/projects");
+	const loadProjects = useCallback(async () => {
+		
+		const res = await fetch("app/api/projects");
 		const data = await res.json();
+	
 		setProjects(data);
 	},[])
 

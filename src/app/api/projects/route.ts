@@ -3,8 +3,10 @@ import { prisma } from "@/libs/prisma";
 
 export const GET = async () => {
 	try {
-		const projects = await prisma.projects.findMany();
-		return NextResponse.json(projects);
+		const { projects } = prisma
+		const projectsArr = await projects.findMany();
+		console.log(projectsArr);
+		return NextResponse.json(projectsArr);
 	} catch (error) {
 		if (error instanceof Error) {
 			return NextResponse.json({
