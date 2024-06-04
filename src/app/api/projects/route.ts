@@ -5,7 +5,7 @@ export const GET = async () => {
 	try {
 		const { projects } = prisma
 		const projectsArr = await projects.findMany();
-		console.log(projectsArr);
+		console.log("este es un proyecto",projectsArr);
 		return NextResponse.json(projectsArr);
 	} catch (error) {
 		if (error instanceof Error) {

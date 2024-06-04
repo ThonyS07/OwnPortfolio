@@ -17,7 +17,7 @@ const Home = () => {
 					<section id='sobre mi'>
 						<AboutMe />
 					</section>
-					<section id='mis pproyectos'>
+					<section id='mis proyectos'>
 						<Projects />
 					</section>
 					<div className='flex-col justify-center items-center'>
