@@ -5,34 +5,31 @@ import React, { useEffect, useState } from "react";
 import ProjectsCard from "../Cards/ProjectsCard";
 import { useProjects } from "@/context/ProjectContext";
 import { Projects } from "@prisma/client";
+import { useProjectStore } from "@/store/projectStore";
 
+const ProjectsWrapper: React.FC = () => {
+	const projectsArr = useProjectStore(state => state.projects
+	)
+	console.log("type", typeof projectsArr);
+	const fetchProjects = useProjectStore((state) => state.fetchProjects);
 
+	
 
-const ProjectsWrapper = () => {
-	// const { projects, loadProjects } = useProjects();
-	const [projects, setProjects] = useState<Projects[]>([]);
-const loadProjects = async () => {
-	const res = await fetch("/api/projects");
-	console.log(res);
-	const data = await res.json();
-	console.log(data);
+	useEffect(() => {
+		fetchProjects();
+	}, [fetchProjects]);
 
-	setProjects(data);
-}
-	loadProjects()
-	// useEffect(() => {
-	// 	console.log("montando use effect del wrapper, proyecto",projects)
-	// 	loadProjects();
-	// 	console.log("use effect del wrapper, proyecto",projects)
-	// }, [loadProjects]);
-	console.log("console del wrapper, proyecto",projects)
+	console.log("console del wrapper, proyecto", projectsArr);
 
 	return (
 		<div className='flex xl:w-[90%] sm:flex-col md:flex-row sm:gap-[24px]  lg:gap-[40] xl:gap-[68px] flex-wrap items-center  justify-center'>
-			{projects.map((project) => (
-				<ProjectsCard key={project.id} project={project} />
-			))}
-			
+			{projectsArr && projectsArr.length > 0 ? (
+				projectsArr.map((project: Projects) => (
+					<ProjectsCard key={project.id} project={project} />
+				))
+			) : (
+				<p>No projects available.</p>
+			)}
 		</div>
 	);
 };
