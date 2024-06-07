@@ -1,14 +1,15 @@
-import { Input } from "@nextui-org/input";
+import React from "react";
 import { Field, ErrorMessage } from "formik";
-
-type FormInputProps = {
+import { Textarea } from "@nextui-org/react";
+import styles from "./FormTextarea.module.css";
+/*necesario para actualizar repo*/
+type FormTextareaProps = {
 	label: string; // specify the type of the label prop
 	error: boolean;
 	name: string;
 	placeholder: string;
 };
-
-export const FormInput: React.FC<FormInputProps> = ({
+export const FormTextarea: React.FC<FormTextareaProps> = ({
 	label,
 	error,
 	name,
@@ -17,11 +18,10 @@ export const FormInput: React.FC<FormInputProps> = ({
 	return (
 		<div className='bg-mora2 w-[420px] h-[55px] top-[328px] left-[503px] rounded-[12px] mb-[5px] mt-[20px]'>
 			<Field
-				as={Input}
+				as={Textarea}
 				label={label}
 				variant='bordered'
-				placeholder={`${placeholder}...`}
-				type='text'
+				placeholder={`${placeholder}`}
 				id={name}
 				name={name}
 				errorMessage={<ErrorMessage name={name} component='div' />}
@@ -30,3 +30,5 @@ export const FormInput: React.FC<FormInputProps> = ({
 		</div>
 	);
 };
+
+export default FormTextarea;
