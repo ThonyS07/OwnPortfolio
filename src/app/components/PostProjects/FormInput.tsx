@@ -3,7 +3,7 @@ import { Field, ErrorMessage } from "formik";
 
 type FormInputProps = {
 	label: string; // specify the type of the label prop
-	error: boolean;
+	error: string | undefined;
 	name: string;
 	placeholder: string;
 };
