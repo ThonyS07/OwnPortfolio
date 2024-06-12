@@ -1,15 +1,18 @@
 import { initialValues as formikInitialValues } from "@/app/schemas/formikProjectValues";
 import postProjectSchema from "@/app/schemas/PostProjectSchema";
 import { Projects } from "@prisma/client";
-import { Formik, Form} from "formik";
+import { Formik, Form } from "formik";
 
 import React from "react";
 import { FormInput } from "./FormInput";
 import FormTextarea from "./FormTextarea";
+import FormArrayInput from "./FormArrayInput";
 
 const PostProjects: React.FC<Projects> = () => {
 	const initialValues = formikInitialValues;
+
 	const validationSchema = postProjectSchema;
+
 	const handleFormChange = (
 		event: React.ChangeEvent<HTMLFormElement>,
 		values: Projects
@@ -43,11 +46,11 @@ const PostProjects: React.FC<Projects> = () => {
 								/>
 							</div>
 							<div>
-								<FormInput
-									label='Title'
-									error={errors.title}
-									name='title'
-									placeholder='Title'
+								<FormArrayInput
+									label='Tags'
+									error={errors.tags as string[]}
+									name='tags'
+									placeholder='Tags'
 								/>
 							</div>
 							<div>

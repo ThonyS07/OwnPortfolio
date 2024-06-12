@@ -12,9 +12,10 @@ const postProjectSchema = Yup.object().shape({
 		.required("Campo requerido"),
 	description: Yup.string()
 		.min(3, "Debe poseer mínimo 3 caracteres ")
-        .required("Campo requerido"),
-    tags: Yup.array().required("Campo requerido"),
-    images: Yup.array().required("Campo requerido"),
+		.required("Campo requerido"),
+	tags: Yup.array().of(Yup.string()).required("Campo requerido"),
+	// tags: Yup.array().required("Campo requerido"),
+	images: Yup.array().required("Campo requerido"),
 	repoLink: Yup.string().required("Campo requerido"),
 	deployLink: Yup.string(),
 });
